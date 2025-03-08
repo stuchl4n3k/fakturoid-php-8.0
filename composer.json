@@ -1,6 +1,6 @@
 {
-  "name": "fakturoid/fakturoid-php",
-  "description": "Fakturoid PHP library",
+  "name": "szymsza/fakturoid-php-8.0",
+  "description": "Fakturoid PHP 8.0 library",
   "keywords": [
     "fakturoid",
     "api",
