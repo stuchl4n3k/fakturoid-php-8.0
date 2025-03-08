@@ -1,22 +1,13 @@
-# Fakturoid PHP lib
-
-<p align=center>
-
-  ![Tests](https://github.com/fakturoid/fakturoid-php/actions/workflows/main.yml/badge.svg)
-  <a href="https://github.com/fakturoid/fakturoid-php/actions"><img src="https://badgen.net/github/checks/fakturoid/fakturoid-php/master"></a>
-  <a href="https://packagist.org/packages/fakturoid/fakturoid-php"><img src="https://badgen.net/packagist/dm/fakturoid/fakturoid-php"></a>
-  <a href="https://packagist.org/packages/fakturoid/fakturoid-php"><img src="https://badgen.net/packagist/v/fakturoid/fakturoid-php"></a>
-  <a href="https://packagist.org/packages/fakturoid/fakturoid-php"><img src="https://badgen.net/packagist/php/fakturoid/fakturoid-php"></a>
-  <a href="https://github.com/fakturoid/fakturoid-php"><img src="https://badgen.net/github/license/fakturoid/fakturoid-php"></a>
-</p>
+# Fakturoid PHP 8.0 lib
 
 PHP library for [Fakturoid.cz](https://www.fakturoid.cz/). Please see [API](https://www.fakturoid.cz/api/v3) for more documentation.
-New account just for testing API and using separate user (created via "Settings > User account") for production usage is highly recommended.
 
+This library is a fork of the [official PHP 8.1 library](https://github.com/fakturoid/fakturoid-php) to make it usable in PHP 8.0 as well. 
+
+New account just for testing API and using separate user (created via "Settings > User account") for production usage is highly recommended.
 
 ## Content
 
-- [Versions](#versions)
 - [Installation](#installation)
 - [Authorization by OAuth 2.0](#authorization-by-oauth-20)
   - [Authorization Code Flow](#authorization-code-flow)
@@ -37,21 +28,14 @@ New account just for testing API and using separate user (created via "Settings 
   - [Code-Style Check](#code-style-check)
   - [Check all requires for PR](#check-all-requires-for-pr)
 
-## Versions
-
-| Lib. version | Fakturoid API | PHP       |
-|--------------|---------------|-----------|
-| `2.x`        | `v3`          | `>=8.1`   |
-| `1.x`        | `v2`          | `>=5.3.0` |
-
 ## Installation
 The recommended way to install is through Composer:
 
 ```
-composer require fakturoid/fakturoid-php
+composer require szymsza/fakturoid-php-8.0
 ```
 
-Library requires PHP 8.1 (or later) and `ext-json`, `nyholm/psr7` and `psr/http-client` extensions.
+Library requires PHP 8.0 (or later) and `ext-json`, `nyholm/psr7` and `psr/http-client` extensions.
 
 ## Authorization by OAuth 2.0
 
