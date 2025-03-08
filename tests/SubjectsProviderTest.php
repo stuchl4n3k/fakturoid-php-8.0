@@ -107,15 +107,11 @@ class SubjectsProviderTest extends TestCase
             throw new \Exception($errstr, $errno);
         }, E_ALL);
 
-        try {
-            $this->expectException(\Exception::class);
-            $this->expectExceptionMessage('Unknown option keys: unknown');
-            $response = $provider->search($querySearch + ['unknown' => 'unknown']);
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Unknown option keys: unknown');
+        $response = $provider->search($querySearch + ['unknown' => 'unknown']);
 
-            $this->assertEquals(['data' => 'test@fakturoid.cz'], $response->getBody(true));
-        } finally {
-            restore_error_handler();
-        }
+        $this->assertEquals(['data' => 'test@fakturoid.cz'], $response->getBody(true));
     }
 
     public function testUpdate(): void
