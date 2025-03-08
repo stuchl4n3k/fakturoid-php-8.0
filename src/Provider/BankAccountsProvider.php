@@ -8,7 +8,7 @@ use Fakturoid\Response;
 final class BankAccountsProvider extends Provider
 {
     public function __construct(
-        private readonly DispatcherInterface $dispatcher
+        private DispatcherInterface $dispatcher
     ) {
     }
 

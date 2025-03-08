@@ -22,15 +22,15 @@ class AuthProvider
     private ?CredentialCallback $credentialsCallback = null;
 
     public function __construct(
-        #[\SensitiveParameter] private readonly string $clientId,
-        #[\SensitiveParameter] private readonly string $clientSecret,
-        private readonly ?string $redirectUri,
-        private readonly ClientInterface $client
+        #[\SensitiveParameter] private string $clientId,
+        #[\SensitiveParameter] private string $clientSecret,
+        private ?string $redirectUri,
+        private ClientInterface $client
     ) {
     }
 
     public function auth(
-        AuthTypeEnum $authType = AuthTypeEnum::AUTHORIZATION_CODE_FLOW,
+        string $authType = AuthTypeEnum::AUTHORIZATION_CODE_FLOW,
         Credentials $credentials = null
     ): ?Credentials {
         $this->credentials = $credentials;
@@ -89,16 +89,16 @@ class AuthProvider
      * @return void
      * @throws AuthorizationFailedException
      */
-    private function checkResponseWithAccessToken(array $json, AuthTypeEnum $authType): void
+    private function checkResponseWithAccessToken(array $json, string $authType): void
     {
         if (!empty($json['error'])) {
             throw new AuthorizationFailedException(
-                sprintf('An error occurred while %s flow. Message: %s', $authType->value, $json['error'])
+                sprintf('An error occurred while %s flow. Message: %s', $authType, $json['error'])
             );
         }
         if (empty($json['access_token']) || empty($json['expires_in'])) {
             throw new AuthorizationFailedException(
-                sprintf('An error occurred while %s flow. Message: invalid response', $authType->value)
+                sprintf('An error occurred while %s flow. Message: invalid response', $authType)
             );
         }
     }
@@ -155,7 +155,7 @@ class AuthProvider
         if ($this->credentials === null) {
             throw new AuthorizationFailedException('Load authentication screen first.');
         }
-        if ($this->credentials->getAuthType()->value !== AuthTypeEnum::AUTHORIZATION_CODE_FLOW->value) {
+        if ($this->credentials->getAuthType() !== AuthTypeEnum::AUTHORIZATION_CODE_FLOW) {
             throw new AuthorizationFailedException('Revoke is only available for authorization code flow');
         }
         try {

@@ -17,12 +17,12 @@ use Psr\Http\Client\ClientInterface;
 
 class Dispatcher implements DispatcherInterface
 {
-    final public const BASE_URL = 'https://app.fakturoid.cz/api/v3';
+    public const BASE_URL = 'https://app.fakturoid.cz/api/v3';
 
     public function __construct(
-        private readonly string $userAgent,
-        private readonly AuthProvider $authorization,
-        private readonly ClientInterface $client,
+        private string $userAgent,
+        private AuthProvider $authorization,
+        private ClientInterface $client,
         private ?string $accountSlug = null
     ) {
     }

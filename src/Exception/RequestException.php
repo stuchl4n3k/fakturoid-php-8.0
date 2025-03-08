@@ -10,8 +10,8 @@ use Throwable;
 class RequestException extends Exception implements RequestExceptionInterface
 {
     public function __construct(
-        private readonly RequestInterface $request,
-        private readonly ResponseInterface $response,
+        private RequestInterface $request,
+        private ResponseInterface $response,
         ?Throwable $previous = null
     ) {
         parent::__construct($response->getReasonPhrase(), $response->getStatusCode(), $previous);
