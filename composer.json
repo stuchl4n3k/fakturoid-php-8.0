@@ -1,5 +1,5 @@
 {
-  "name": "szymsza/fakturoid-php-8.0",
+  "name": "stuchl4n3k/fakturoid-php-8.0",
   "description": "Fakturoid PHP 8.0 library",
   "keywords": [
     "fakturoid",
@@ -22,7 +22,8 @@
     "php": ">=8.0",
     "ext-json": "*",
     "psr/http-client": "^1.0",
-    "nyholm/psr7": "^1.8"
+    "psr/http-message": "~1.0.1",
+    "nyholm/psr7": "^1.6"
   },
   "require-dev": {
     "ext-dom": "*",
